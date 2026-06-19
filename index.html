@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231A56F0'/%3E%3Cpath d='M24 28L38 28L50 56L62 28L76 28L50 80Z' fill='%23fff'/%3E%3C/svg%3E">
 <title>Vimal Ajit — Product Manager · Finance Automation & B2B Fintech</title>
 <meta name="description" content="Product Manager building finance-automation products — the plumbing that moves money, reconciles ledgers, and keeps global operations running. Builds hands-on with AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,8 +108,8 @@
   .currently .cstat span{font-size:12px;color:#8FA1B5;margin-top:5px;display:block;}
 
   /* ---- build cards ---- */
-  .builds{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
-  @media(max-width:860px){.builds{grid-template-columns:1fr;}}
+  .builds{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:680px;}
+  @media(max-width:860px){.builds{grid-template-columns:1fr;max-width:none;}}
   .build{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;position:relative;}
   .build:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,27,43,.10);border-color:#C9D6FF;}
   .build .bk{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;}
@@ -141,23 +142,12 @@
   .btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,86,240,.32);}
   .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
   .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px);}
-  .personal-line{font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--mute);max-width:52ch;margin:42px auto 0;line-height:1.6;padding-top:26px;border-top:1px solid var(--line);}
 
   footer{border-top:1px solid var(--line);padding:30px 0;}
   .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--mute);}
   .foot-in a{color:var(--slate);transition:color .15s;}
   .foot-in a:hover{color:var(--accent);}
   .foot-links{display:flex;gap:20px;}
-
-  /* ---- hero split with portrait ---- */
-  .hero-split{display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:center;}
-  @media(max-width:820px){.hero-split{grid-template-columns:1fr;gap:32px;}}
-  .portrait-wrap{position:relative;justify-self:center;}
-  .portrait{width:min(330px,78vw);aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;position:relative;z-index:2;box-shadow:0 24px 60px rgba(11,27,43,.18);}
-  /* cobalt accent frame behind the photo */
-  .portrait-wrap::before{content:"";position:absolute;inset:0;transform:translate(16px,16px);border:2px solid var(--accent);border-radius:20px;z-index:1;}
-  .portrait-wrap::after{content:"";position:absolute;left:-14px;top:-14px;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,rgba(26,86,240,.22),transparent 70%);z-index:0;}
-  @media(max-width:820px){.portrait-wrap::before{transform:translate(12px,12px);}}
 
   /* reveal animation */
   .reveal{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
@@ -181,23 +171,16 @@
   <!-- HERO -->
   <header class="hero">
     <div class="wrap">
-      <div class="hero-split">
-        <div class="hero-text">
-          <div class="eyebrow reveal d1"><span class="pulse"></span>Product Manager · Finance Automation &amp; B2B Fintech</div>
-          <h1 class="hero-h reveal d2">I build the plumbing that <em>moves money.</em></h1>
-          <p class="hero-sub reveal d3">
-            Finance automation — the boring-but-critical systems that move money, reconcile ledgers, and keep a global operation running. I&#8217;ve built one from <b>0&#8594;1</b> over four years, and I ship AI-native products <b>solo, end-to-end</b> on the side.
-          </p>
-          <div class="hero-meta reveal d4">
-            <span><b class="mk">·</b> 4.5 yrs Product Ownership</span>
-            <span><b class="mk">·</b> 9 yrs in enterprise ops</span>
-            <span><b class="mk">·</b> Bengaluru · US East Coast overlap</span>
-            <span><b class="mk">·</b> US B1/B2 visa through 2028</span>
-          </div>
-        </div>
-        <div class="portrait-wrap reveal d3">
-          <img class="portrait" src="vimal_portrait.jpg" alt="Vimal Ajit" />
-        </div>
+      <div class="eyebrow reveal d1"><span class="pulse"></span>Product Manager · Finance Automation &amp; B2B Fintech</div>
+      <h1 class="hero-h reveal d2">I build the plumbing that <em>moves money.</em></h1>
+      <p class="hero-sub reveal d3">
+        Finance automation — the boring-but-critical systems that move money, reconcile ledgers, and keep a global operation running. I&#8217;ve built one from <b>0&#8594;1</b> over four years, and I ship AI-native products <b>solo, end-to-end</b> on the side.
+      </p>
+      <div class="hero-meta reveal d4">
+        <span><b class="mk">·</b> 4.5 yrs Product Ownership</span>
+        <span><b class="mk">·</b> 9 yrs in enterprise ops</span>
+        <span><b class="mk">·</b> Bengaluru · US East Coast overlap</span>
+        <span><b class="mk">·</b> US B1/B2 visa through 2028</span>
       </div>
     </div>
   </header>
@@ -242,14 +225,6 @@
         <span class="sec-rule"></span>
       </div>
       <div class="builds">
-
-        <a class="build" href="https://atithipay.com" target="_blank" rel="noopener">
-          <div class="bk">Consumer Fintech <span class="stage beta">Pre-launch</span></div>
-          <h4>AtithiPay</h4>
-          <div class="desc">A payments platform for foreign visitors to India. Multi-gateway stack — Razorpay, Cashfree, NPCI UPI One World, Transcorp FX — built solo, shipping production features daily with Claude Code.</div>
-          <div class="meta">2,900+ waitlist · DPIIT in progress</div>
-          <span class="go">Visit site &#8594;</span>
-        </a>
 
         <a class="build" href="https://smoothpaycheck.com" target="_blank" rel="noopener">
           <div class="bk">B2C Product <span class="stage live">Live</span></div>
@@ -312,9 +287,6 @@
         <a class="btn btn-ghost" href="https://linkedin.com/in/vimal-ajit" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/vimalajit11" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="personal-line">
-        Off the clock: a Manchester United supporter, a long list of stamps in the passport (Singapore to Nashville to the Maldives), and a deeper backlog of games than I&#8217;ll ever finish. Always up for a conversation about any of the three.
-      </p>
     </div>
   </section>
 </main>
@@ -323,7 +295,6 @@
   <div class="wrap foot-in">
     <div>&#169; 2026 Vimal Ajit · Bengaluru, India</div>
     <div class="foot-links">
-      <a href="https://atithipay.com" target="_blank" rel="noopener">AtithiPay</a>
       <a href="https://smoothpaycheck.com" target="_blank" rel="noopener">SmoothPaycheck</a>
       <a href="https://vimalajit11.github.io/spec-copilot" target="_blank" rel="noopener">SpecCopilot</a>
     </div>
