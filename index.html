@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231A56F0'/%3E%3Cpath d='M24 28L38 28L50 56L62 28L76 28L50 80Z' fill='%23fff'/%3E%3C/svg%3E">
 <title>Vimal Ajit — Product Manager · Finance Automation & B2B Fintech</title>
@@ -72,7 +73,7 @@
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-transform:uppercase;margin-bottom:22px;}
   .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:#19B36B;box-shadow:0 0 0 0 rgba(25,179,107,.5);animation:pulse 2.4s infinite;}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,179,107,.45);}70%{box-shadow:0 0 0 7px rgba(25,179,107,0);}100%{box-shadow:0 0 0 0 rgba(25,179,107,0);}}
-  h1.hero-h{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(40px,6.4vw,74px);line-height:1.02;letter-spacing:-.025em;color:var(--ink);max-width:14ch;}
+  h1.hero-h{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,5.1vw,58px);line-height:1.02;letter-spacing:-.025em;color:var(--ink);max-width:14ch;}
   h1.hero-h em{font-style:italic;color:var(--accent);}
   .hero-sub{font-family:'Newsreader',serif;font-size:clamp(18px,2.1vw,23px);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-top:24px;}
   .hero-sub b{font-weight:500;color:var(--ink);}
@@ -149,13 +150,36 @@
   .foot-in a:hover{color:var(--accent);}
   .foot-links{display:flex;gap:20px;}
 
-  /* reveal animation */
-  .reveal{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
-  @keyframes rise{to{opacity:1;transform:none;}}
-  .d1{animation-delay:.05s;}.d2{animation-delay:.13s;}.d3{animation-delay:.21s;}.d4{animation-delay:.30s;}.d5{animation-delay:.40s;}
+  /* scroll progress */
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));z-index:60;will-change:transform;}
+
+  /* hero two-column + portrait */
+  .hero-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:46px;align-items:center;}
+  .hero-copy{min-width:0;}
+  .hero-copy .hero-sub{max-width:48ch;}
+  .hero-portrait{justify-self:end;width:100%;max-width:380px;}
+  .portrait-frame{position:relative;border-radius:18px;will-change:transform;}
+  .portrait-frame::before{content:"";position:absolute;inset:0;border-radius:18px;border:1.5px solid var(--accent);transform:translate(14px,16px);opacity:.5;z-index:0;}
+  .portrait-frame img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:857/1072;object-fit:cover;border-radius:18px;border:1px solid var(--line);box-shadow:0 22px 50px rgba(11,27,43,.16);}
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .hero-portrait{justify-self:center;max-width:280px;order:2;}
+    .portrait-frame::before{transform:translate(11px,12px);}
+  }
+
+  /* reveal on scroll (progressive enhancement) */
+  html.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  html.js .reveal.in{opacity:1;transform:none;}
+  html.js .d1{transition-delay:.04s;}html.js .d2{transition-delay:.12s;}html.js .d3{transition-delay:.20s;}html.js .d4{transition-delay:.28s;}html.js .d5{transition-delay:.36s;}
+  html.js .builds .build:nth-child(2){transition-delay:.10s;}
+  html.js .approach .principle:nth-child(2){transition-delay:.08s;}html.js .approach .principle:nth-child(3){transition-delay:.16s;}html.js .approach .principle:nth-child(4){transition-delay:.24s;}
+  @media (prefers-reduced-motion: reduce){
+    html.js .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+  }
 </style>
 </head>
 <body>
+<div class="scroll-progress"></div>
 <nav>
   <div class="wrap nav-in">
     <a href="#top" class="brand">Vimal Ajit<span class="dot">.</span></a>
@@ -170,17 +194,24 @@
 <main id="top">
   <!-- HERO -->
   <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow reveal d1"><span class="pulse"></span>Product Manager · Finance Automation &amp; B2B Fintech</div>
-      <h1 class="hero-h reveal d2">I build the plumbing that <em>moves money.</em></h1>
-      <p class="hero-sub reveal d3">
-        Finance automation — the boring-but-critical systems that move money, reconcile ledgers, and keep a global operation running. I&#8217;ve built one from <b>0&#8594;1</b> over four years, and I ship AI-native products <b>solo, end-to-end</b> on the side.
-      </p>
-      <div class="hero-meta reveal d4">
-        <span><b class="mk">·</b> 4.5 yrs Product Ownership</span>
-        <span><b class="mk">·</b> 9 yrs in enterprise ops</span>
-        <span><b class="mk">·</b> Bengaluru · US East Coast overlap</span>
-        <span><b class="mk">·</b> US B1/B2 visa through 2028</span>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow reveal d1"><span class="pulse"></span>Product Manager · Finance Automation &amp; B2B Fintech</div>
+        <h1 class="hero-h reveal d2">I build the plumbing that <em>moves money.</em></h1>
+        <p class="hero-sub reveal d3">
+          Finance automation — the boring-but-critical systems that move money, reconcile ledgers, and keep a global operation running. I&#8217;ve built one from <b>0&#8594;1</b> over four years, and I ship AI-native products <b>solo, end-to-end</b> on the side.
+        </p>
+        <div class="hero-meta reveal d4">
+          <span><b class="mk">·</b> 4.5 yrs Product Ownership</span>
+          <span><b class="mk">·</b> 9 yrs in enterprise ops</span>
+          <span><b class="mk">·</b> Bengaluru · US East Coast overlap</span>
+          <span><b class="mk">·</b> US B1/B2 visa through 2028</span>
+        </div>
+      </div>
+      <div class="hero-portrait reveal d3">
+        <div class="portrait-frame">
+          <img src="vimal_portrait.jpg" alt="Vimal Ajit, Product Manager" width="857" height="1072" />
+        </div>
       </div>
     </div>
   </header>
@@ -189,10 +220,10 @@
   <div class="metrics reveal d5">
     <div class="wrap" style="padding:0;">
       <div class="metrics-grid">
-        <div class="metric" style="padding-left:32px;"><div class="num">$2.5<span class="u">M</span><span style="font-size:.5em;color:var(--slate);">/mo</span></div><div class="lab">Payouts processed</div></div>
-        <div class="metric"><div class="num">85<span class="u">%</span></div><div class="lab">Manual workflow eliminated</div></div>
-        <div class="metric"><div class="num">99.8<span class="u">%</span></div><div class="lab">GL-to-billing consistency</div></div>
-        <div class="metric" style="padding-right:32px;"><div class="num">3,000<span class="u">+</span></div><div class="lab">Freelancers paid globally</div></div>
+        <div class="metric" style="padding-left:32px;"><div class="num"><span class="count" data-to="2.5" data-dec="1" data-pre="$">$2.5</span><span class="u">M</span><span style="font-size:.5em;color:var(--slate);">/mo</span></div><div class="lab">Payouts processed</div></div>
+        <div class="metric"><div class="num"><span class="count" data-to="85" data-dec="0">85</span><span class="u">%</span></div><div class="lab">Manual workflow eliminated</div></div>
+        <div class="metric"><div class="num"><span class="count" data-to="99.8" data-dec="1">99.8</span><span class="u">%</span></div><div class="lab">GL-to-billing consistency</div></div>
+        <div class="metric" style="padding-right:32px;"><div class="num"><span class="count" data-to="3000" data-dec="0" data-comma="1">3,000</span><span class="u">+</span></div><div class="lab">Freelancers paid globally</div></div>
       </div>
     </div>
   </div>
@@ -200,7 +231,7 @@
   <!-- CURRENTLY -->
   <section>
     <div class="wrap">
-      <div class="currently">
+      <div class="currently reveal">
         <div class="tag">Currently · Deluxe Media</div>
         <h3>I built CAPS from 0&#8594;1 — the AP layer of a broader order-to-cash platform.</h3>
         <p>
@@ -219,14 +250,14 @@
   <!-- BUILDS -->
   <section id="builds">
     <div class="wrap">
-      <div class="sec-label">
+      <div class="sec-label reveal">
         <span class="sec-num">01</span>
         <span class="sec-title">Things I&#8217;ve built, solo</span>
         <span class="sec-rule"></span>
       </div>
       <div class="builds">
 
-        <a class="build" href="https://smoothpaycheck.com" target="_blank" rel="noopener">
+        <a class="build reveal" href="https://smoothpaycheck.com" target="_blank" rel="noopener">
           <div class="bk">B2C Product <span class="stage live">Live</span></div>
           <h4>SmoothPaycheck</h4>
           <div class="desc">An income-stabilization tool for freelancers with variable income. Built and productionised end-to-end — frontend, payments, lead-magnet pipeline, and an agentic content funnel. Real product taking payments.</div>
@@ -234,7 +265,7 @@
           <span class="go">Visit site &#8594;</span>
         </a>
 
-        <a class="build" href="https://vimalajit11.github.io/spec-copilot" target="_blank" rel="noopener">
+        <a class="build reveal" href="https://vimalajit11.github.io/spec-copilot" target="_blank" rel="noopener">
           <div class="bk">Internal AI Tool <span class="stage live">Live</span></div>
           <h4>SpecCopilot</h4>
           <div class="desc">A working AI tool that turns a one-line idea into a full PRD — problem, user stories, acceptance criteria, metrics, and a RICE score — generated live via the Claude API. The kind of tool that multiplies a PM team.</div>
@@ -249,25 +280,25 @@
   <!-- APPROACH -->
   <section id="approach">
     <div class="wrap">
-      <div class="sec-label">
+      <div class="sec-label reveal">
         <span class="sec-num">02</span>
         <span class="sec-title">How I work</span>
         <span class="sec-rule"></span>
       </div>
       <div class="approach">
-        <div class="principle">
+        <div class="principle reveal">
           <h5>Adoption is the real product.</h5>
           <p>Building CAPS taught me the hardest part of an internal tool isn&#8217;t shipping it — it&#8217;s getting people to stop using their spreadsheets. Value proposition and adoption deserve the same rigor as features.</p>
         </div>
-        <div class="principle">
+        <div class="principle reveal">
           <h5>SQL before spec.</h5>
           <p>On the duplicate-payment API, the root cause wasn&#8217;t the matching algorithm — it was upstream payee-master data. I dig into the data before writing the spec, which is why fixes hold beyond launch.</p>
         </div>
-        <div class="principle">
+        <div class="principle reveal">
           <h5>I build, not just specify.</h5>
           <p>I ship AI-assisted products end-to-end with Claude Code, Figma, and GitHub — making the architecture and safety calls myself. Rapid prototyping with AI is how I work daily, not a bolt-on.</p>
         </div>
-        <div class="principle">
+        <div class="principle reveal">
           <h5>AI where it earns its keep.</h5>
           <p>At SmoothPaycheck I deliberately kept AI as a content-production tool, not a product feature, because the value was computational. Knowing where AI adds value versus noise is the call I make most.</p>
         </div>
@@ -278,11 +309,11 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2 class="big">Let&#8217;s talk about <em>moving money well.</em></h2>
-      <p class="open">
+      <h2 class="big reveal">Let&#8217;s talk about <em>moving money well.</em></h2>
+      <p class="open reveal">
         Open to Senior PM / PM roles in B2B fintech, finance automation (O2C, AP, R2R), payments, or internal technical platforms. Fully remote preferred — my 3pm&#8211;12am IST shift gives full US East Coast and strong EU overlap. Open to Bengaluru or Hyderabad for the right match.
       </p>
-      <div class="contact-actions">
+      <div class="contact-actions reveal">
         <a class="btn btn-primary" href="mailto:vimal.ajit11@gmail.com">Email me &#8594;</a>
         <a class="btn btn-ghost" href="https://linkedin.com/in/vimal-ajit" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/vimalajit11" target="_blank" rel="noopener">GitHub</a>
@@ -300,5 +331,69 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if (hasIO){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else { revealEls.forEach(function(el){ el.classList.add('in'); }); }
+
+  function fmt(v, dec, comma, pre){
+    var n = dec ? v.toFixed(dec) : Math.round(v).toString();
+    if (comma){ var parts = n.split('.'); parts[0] = parseInt(parts[0],10).toLocaleString('en-US'); n = parts.join('.'); }
+    return (pre||'') + n;
+  }
+  var counts = document.querySelectorAll('.metrics .count');
+  function animateCount(el){
+    var to = parseFloat(el.getAttribute('data-to'));
+    var dec = parseInt(el.getAttribute('data-dec')||'0',10);
+    var comma = el.getAttribute('data-comma')==='1';
+    var pre = el.getAttribute('data-pre')||'';
+    var dur = 1500, start = null;
+    function ease(t){ return 1 - Math.pow(1-t,3); }
+    function step(ts){
+      if (start===null) start = ts;
+      var p = Math.min((ts-start)/dur,1);
+      el.textContent = fmt(to*ease(p), dec, comma, pre);
+      if (p<1){ requestAnimationFrame(step); } else { el.textContent = fmt(to, dec, comma, pre); }
+    }
+    requestAnimationFrame(step);
+  }
+  if (counts.length && hasIO && !rm){
+    counts.forEach(function(el){
+      var dec = parseInt(el.getAttribute('data-dec')||'0',10);
+      var comma = el.getAttribute('data-comma')==='1';
+      var pre = el.getAttribute('data-pre')||'';
+      el.textContent = fmt(0, dec, comma, pre);
+    });
+    var band = document.querySelector('.metrics');
+    var done = false;
+    var mo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting && !done){ done = true; counts.forEach(animateCount); mo.disconnect(); } });
+    }, {threshold:0.35});
+    if (band){ mo.observe(band); }
+  }
+
+  var bar = document.querySelector('.scroll-progress');
+  var frame = document.querySelector('.hero-portrait .portrait-frame');
+  var vh = window.innerHeight, ticking = false;
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset || 0;
+    if (bar){ var max = document.documentElement.scrollHeight - vh; bar.style.transform = 'scaleX(' + (max>0 ? Math.min(Math.max(y/max,0),1) : 0) + ')'; }
+    if (frame && !rm && y <= vh){ frame.style.transform = 'translate3d(0,' + Math.min(y*0.06,40) + 'px,0)'; }
+    ticking = false;
+  }
+  function tick(){ if(!ticking){ requestAnimationFrame(onScroll); ticking = true; } }
+  window.addEventListener('scroll', tick, {passive:true});
+  window.addEventListener('resize', function(){ vh = window.innerHeight; tick(); }, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>
